@@ -15,33 +15,27 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <h1 class="text-center">
+    <header>
       <h1>Hangman</h1>
-      <button  type="button" class="btn btn-outline-danger">Start</button>
-      <hr>
-      <div></div>
       <h2>Guess the 90's Cartoon</h2>
-      <p>Use the alphabet below to guess the word</p>
-      <div class="row">
-
-        <div class="col-lg-6">
-          <div id="sizeControls" class="card">
-            <h4 class="card-header">And the answer is...</h4>
-            <div class="card-body">
-              <div class="text-center">
-              </div>
-            </div>
-          </div>
-          <div id="buttons" class="text-center"></div>
-          <button class="btn btn-warning btn-xs theme-button">
-            <span class="hint"></span> Hint</button>
-          <button class="btn btn-dark btn-xs pause-button">
-            <span class="Reset"></span> Reset</button>
-        </div>
-
-      </div>
-  </div>
+      <button type="button" class="btn btn-outline-danger btn-lg ">Start</button>
+    </header>
+  
+  <div class="row" id="wrapper">
+   <div class="col-lg-6" >
+     <p>The cartoon is.. </p>
+     <img src="assets/images/9ab7d898-2ef5-4c2f-8f40-c5f2ed6a9ae8.jpg">
+      <button class="btn btn-outline-danger">Reset</button>
+    </div>
+<div class="col-lg-6">
+  <p id=cartoons> Cartoon</p>
+  <p id=lettersGuessed></p>
+  <p id=choosenShows></p>
+  <p id="underscore">_ _ _ _ _ _ _</p>
+  <p id="wrongGuess"></p>
+  <p id="rightGuess"></p>
+</div>    
+    
 
   </div>
 
