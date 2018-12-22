@@ -1,6 +1,6 @@
-var shows = ["Rugrats", "Doug", "CatDog", "Arthur", "Spongebob"];
+var shows = ["rugrats", "doug", "catDog", "arthur", "spongebob"];
 var lettersGuessed = [];
-var choosenShow = [];
+
 var wrongWord = [];
 var underscore = []; 
 var guessLeft = 10;
@@ -10,37 +10,51 @@ var docRightGuess = document.getElementById('rightGuess');
  
 
 var categories = document.getElementById("cartoons"); 
-var lettersGuessed = document.getElementById("lettersGuessed");
+var lettersGuessedDisplay = document.getElementById("lettersGuessed");
 
-var randNum = Math.floor(Math.random() + shows.length);
+var randNum = Math.floor(Math.random() * (shows.length -1));
+
+console.log(randNum, "this should be the random number");
 var choosenShow = shows[randNum];
 var underscore = [];
  
 
 var generateUnderscore = () => {
-    for(var i = 0; i < choosenShow,length; i++){
+    console.log(choosenShow, "this should be random workd");
+    for(var i = 0; i < choosenShow.length; i++){
         underscore.push('_');
-        docUnderscore[0].innerHtml = underscore.join('');  
+        console.log(underscore);
+        docUnderscore.innerHTML = underscore.join(' ');  
     }
     return underscore;
 }
 
 
-document.addEventListener('keypress', (event) =>{
-    var keyword = String.fromCharCode(event.keycode);
-    if(choosenShow.indexOf(keyword) ) {
-        rightWord.push(keyword);
-        docUnderscore[0].innerHTML = underscore.join('');
-        underscore[choosenShow.indexOf(keyword)] = keyword;
-        docRightGuess[0].innerHTML = rightWord;
-        if(underscore.join('') == choosenShow){
-            alert('YOU WIN!')
+document.onkeypress = function(event){
+   var letter = event.key;
+   console.log(letter);
+    if(choosenShow.includes(letter)){
+        console.log("letter matched");
+        for(var i = 0; i < choosenShow.length; i++){
+            if(choosenShow[i] == letter) {
+                underscore[i] = letter
+                docUnderscore.innerHTML = underscore.join(' ');
+            }
         }
-    }  
-    else {
-        wrongWord.push(keyword);
+
+        if(!underscore.includes('_')){
+            alert('YOU WIN')
+        }
+        guessLeft --
+
+       
+    }else {
+        lettersGuessed.push(letter);
+        lettersGuessedDisplay.innerHTML = lettersGuessed;
+        guessLeft--
     }
-}); 
+}
+
 
 generateUnderscore(); 
 // guessText.textContent  = "Guesses Left:" + guessLeft;
